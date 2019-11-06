@@ -4,6 +4,7 @@ import Router from 'vue-router';
 import Login from './views/shared/Login.vue';
 import Register from './views/shared/Signup.vue';
 import Home from './views/shared/home.vue'
+import Student from './views/student/student.vue'
 // import Staff from './components/school/staff.vue'
 // import AddStaff from './components/school/addStaff.vue'
 // import Student from './components/school/student.vue'
@@ -44,6 +45,11 @@ export default new Router({
       name: 'Register',
       component: Register,
     },
+    {
+        path: '/student',
+        name: 'Student',
+        component: Student,
+      },
     // {
     //   path: '/school',
     //   name: 'School',
