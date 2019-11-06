@@ -20,6 +20,12 @@
                     <div class="fields">
                         <input class="text-input" type="password" v-model="form.password" placeholder="Password" />
                     </div>
+                    <div class="fields">
+                        <input class="text-input" type="password" v-model="checkPassword" placeholder="Re-enter Password" />
+                    </div>
+                    <div v-if="showMsg" class="error">
+                        Password does not match {{showMsg}}
+                    </div>
                     <div class="signup-link">
                         <a href="http://localhost:8080/#/auth/login"> Alerady have an account? Sign In!</a>
                     </div>
@@ -40,6 +46,8 @@
     export default {
         data() {
             return{
+                checkPassword: '',
+                showMsg: false,
                 form: {
                     name: '',
                     email: '',
@@ -57,17 +65,21 @@
         // },
         methods: {
             signupAction: async function() {
-                const res = await axios.post(
-                    "http://localhost:5050/api/v1/user/register",
-                    this.form, 
-                    {
-                        headers:{
-                            "Content-Type": 'application/json'
+                if((this.checkPassword===this.form.password) && (this.form.password!=='')){
+                    this.showMsg=false
+                    const res = await axios.post(
+                        "http://localhost:5050/api/v1/user/register",
+                        this.form, 
+                        {
+                            headers:{
+                                "Content-Type": 'application/json'
+                            }
                         }
-                    }
-                );
-
-                this.result = res;
+                    );
+                    this.result = res;
+                } else {
+                    this.showMsg=true
+                }
                 // console.log(res)
             }
         }
