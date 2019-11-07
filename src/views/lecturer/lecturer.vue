@@ -7,7 +7,7 @@
         <Header />
         <div class="flex">
           <router-view class="w-full md:w-4/5"></router-view>
-          <Announcements/>
+          <Announcements class="w-full md:w-1/5"/>
         </div>
       </div>
     </div>
