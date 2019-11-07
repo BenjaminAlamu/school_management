@@ -5,6 +5,10 @@ import Login from "./views/shared/Login.vue";
 import Register from "./views/shared/Signup.vue";
 import Home from "./views/shared/home.vue";
 
+//Admin Routes
+import Admin from "./views/admin/admin.vue";
+// import StudentCourses from "./components/student/courses.vue";
+
 //Student Routes
 import Student from "./views/student/student.vue";
 import StudentCourses from "./components/student/courses.vue";
@@ -50,6 +54,18 @@ export default new Router({
         }
       ]
     },
+    {
+        path: "/admin",
+        name: "Admin",
+        component: Admin,
+        children: [
+          {
+            path: "",
+            component: StudentCourses,
+            name: "courses"
+          }
+        ]
+      },
     {
         path: "/lecturer",
         name: "Lecturer",
