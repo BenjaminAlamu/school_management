@@ -12,7 +12,6 @@
   </div>
   <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
     <div class="text-sm lg:flex-grow">
-
     </div>
     <div>
         <i class="mx-2 text-3xl fas fa-bell"></i>

@@ -4,8 +4,11 @@
     <div class="flex">
       <div class="invisible md:visible md:w-1/5"></div>
       <div class="w-full md:w-4/5">
-      <Header/>
-      <router-view></router-view>
+        <Header />
+        <div class="flex">
+          <router-view class="w-full md:w-4/5"></router-view>
+          <Announcements/>
+        </div>
       </div>
     </div>
   </div>
@@ -14,14 +17,15 @@
 <script>
 import SideBar from "@/components/student/Sidebar.vue";
 import Header from "@/components/shared/header.vue";
-    export default {
-        components:{
-            SideBar,
-            Header
-        }
-    }
+import Announcements from "@/components/shared/announcements.vue";
+export default {
+  components: {
+    SideBar,
+    Header,
+    Announcements
+  }
+};
 </script>
 
 <style scoped>
-
 </style>
