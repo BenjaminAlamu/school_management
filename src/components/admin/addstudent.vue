@@ -5,9 +5,9 @@
       <router-link
         to="/admin/add/student"
         class="invisible ml-4 add-btn text-white p-2 rounded cursor-pointer"
-      >Add Student</router-link>
+      >Add Studentsss</router-link>
     </div>
-        <hr class="mt-2 mr-2" />
+    <hr class="mt-2 mr-2" />
     <div class="add-student">
       <form>
         <div class="fields">
@@ -17,6 +17,10 @@
         <div class="fields">
           <label>Email</label>
           <input type="text" placeholder="johndoegmail.com" v-model="form.email" />
+        </div>
+                <div class="fields">
+          <label>Matric</label>
+          <input type="text" placeholder="150805512" v-model="form.matric" />
         </div>
         <div class="fields">
           <label>Password</label>
@@ -28,8 +32,8 @@
         </div>
         <div v-if="showMsg" class="password-error">Password does not match</div>
         <div class="add-btn">
+          <vue-element-loading v-if="loading" :active="loading" :is-full-screen="true" />
           <button type="submit" @click.prevent="addStudent">Add Student</button>
-          <!-- <input type="submit" @click.prevent="loginAction" /> -->
         </div>
       </form>
     </div>
@@ -44,21 +48,22 @@ export default {
       checkPassword: "",
       showMsg: false,
       result: {},
+      loading: false,
       form: {
         name: "",
         email: "",
-        passsword: ""
+        passsword: "",
       }
     };
   },
   methods: {
     addStudent: async function() {
-      // console.log(res)
       if (
         this.checkPassword === this.form.password &&
         this.form.password !== ""
       ) {
         this.showMsg = false;
+        this.loading = true;
         const res = await axios.post(
           "https://schoolmanagement502.herokuapp.com/api/v1/admin/registerStudent",
           this.form,
@@ -70,8 +75,13 @@ export default {
         );
 
         this.result = res;
+        this.$swal("Success!", "Added successfully!", "success");
+        this.$router.push("/admin/students");
+        this.loading = false;
       } else {
         this.showMsg = true;
+        this.loading = true;
+        self.$swal("Error!", "An error occured", "error");
       }
       // console.log(res)
     }

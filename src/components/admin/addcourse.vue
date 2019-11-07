@@ -1,7 +1,13 @@
 <template>
-  <div>
-    <p>New Course</p>
-    <hr />
+  <div class="mx-12">
+    <div class="flex flex-wrap justify-between items-center">
+      <span class>Courses</span>
+      <router-link
+        to="/admin/add/course"
+        class="invisible ml-4 add-btn text-white p-2 rounded cursor-pointer"
+      >Add Studentsss</router-link>
+    </div>
+    <hr class="mt-2 mr-2" />
     <div class="add-course">
       <form>
         <div class="fields">
@@ -22,18 +28,16 @@
             <option value="5">5</option>
             <option value="6">6</option>
           </select>
-          {{form.units}}
         </div>
         <div class="fields">
           <label>Lecturer</label>
           <select v-model="lecturer">
             <option v-for="(lec, index) in lecs" :value="lec._id" :key="index">{{lec.name}}</option>
           </select>
-          {{lecturer}}
         </div>
         <div class="add-btn">
           <button type="submit" @click.prevent="addCourse">Add Course</button>
-          <!-- <input type="submit" @click.prevent="loginAction" /> -->
+          <vue-element-loading v-if="loading" :active="loading" :is-full-screen="true" />
         </div>
       </form>
     </div>
@@ -49,6 +53,7 @@ export default {
       assignLecturerResult: {},
       lecs: {},
       lecturer: null,
+      loading: false,
       form: {
         title: "",
         code: "",
@@ -77,6 +82,7 @@ export default {
     addCourse: async function() {
       // console.log(res)
       let data = { ...this.form };
+      this.loading = true;
       const res = await axios.post(
         "https://schoolmanagement502.herokuapp.com/api/v1/admin/addCourse",
         data,
@@ -88,8 +94,9 @@ export default {
       );
 
       this.addCourseResult = res.data;
-      // this.assignLecturer(res.data);
-      console.log(this.addCourseResult);
+      this.$router.push("/admin/courses");
+      this.$swal("Success!", "Added successfully!", "success");
+      this.loading = false;
     },
     assignLecturer: async function(course) {
       // console.log(res)

@@ -11,7 +11,7 @@
     <table class="table-auto w-full">
       <thead class>
         <tr>
-          <th class="px-4 py-2">Name</th>
+          <th class="text= left px-4 py-2">Name</th>
           <th class="px-4 py-2">Matric</th>
         </tr>
       </thead>
@@ -35,7 +35,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      students: {}
+      students: []
     };
   },
   mounted() {
