@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import SideBar from "@/components/student/Sidebar.vue";
+import SideBar from "@/components/lecturers/Sidebar.vue";
 import Header from "@/components/shared/header.vue";
 import Announcements from "@/components/shared/announcements.vue";
 export default {
