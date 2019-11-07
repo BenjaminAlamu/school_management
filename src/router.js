@@ -7,11 +7,21 @@ import Home from "./views/shared/home.vue";
 
 //Admin Routes
 import Admin from "./views/admin/admin.vue";
-// import StudentCourses from "./components/student/courses.vue";
+import AdminAddCourse from "./components/admin/addcourse.vue";
+import AdminCourses from "./components/admin/courses.vue";
+import AdminAddLecturer from "./components/admin/addlecturer.vue";
+import AdminAddStudent from "./components/admin/addstudent.vue";
+import AdminLecturers from "./components/admin/lecturers.vue";
+import AdminStudents from "./components/admin/students.vue";
+import AdminSummary from "./components/admin/summary.vue";
+import AdminAnnoucements from "./components/admin/annoucements.vue";
+import AdminAddAnnouncement from "./components/admin/addannoucements.vue";
 
 //Student Routes
 import Student from "./views/student/student.vue";
 import StudentCourses from "./components/student/courses.vue";
+import StudentSummary from "./components/student/summary.vue";
+import StudentCourseRegistration from "./components/student/courseregistration.vue";
 
 //Lecturer Routes
 import Lecturer from "./views/lecturer/lecturer.vue";
@@ -49,8 +59,18 @@ export default new Router({
       children: [
         {
           path: "",
+          component: StudentSummary,
+          name: "student_summary"
+        },
+        {
+          path: "/student/courses",
           component: StudentCourses,
-          name: "courses"
+          name: "student_courses"
+        },
+        {
+          path: "/student/course/registration",
+          component: StudentCourseRegistration,
+          name: "student_registration"
         }
       ]
     },
@@ -61,8 +81,48 @@ export default new Router({
         children: [
           {
             path: "",
-            component: StudentCourses,
-            name: "courses"
+            component: AdminSummary,
+            name: "admin_summary"
+          },
+          {
+            path: "admin/courses",
+            component: AdminCourses,
+            name: "admin_courses"
+          },
+          {
+            path: "admin/lecturers",
+            component: AdminLecturers,
+            name: "admin_lecturers"
+          },
+          {
+            path: "admin/students",
+            component: AdminStudents,
+            name: "admin_student"
+          },
+          {
+            path: "admin/add/course",
+            component: AdminAddCourse,
+            name: "admin_student"
+          },
+          {
+            path: "admin/add/student",
+            component: AdminAddStudent,
+            name: "admin_add_student"
+          },
+          {
+            path: "admin/add/lecturer",
+            component: AdminAddLecturer,
+            name: "admin_add_lecturer"
+          },
+          {
+            path: "admin/add/announcement",
+            component: AdminAddAnnouncement,
+            name: "admin_add_announcement"
+          },
+          {
+            path: "admin/annoucements",
+            component: AdminAnnoucements,
+            name: "admin_annoucements"
           }
         ]
       },

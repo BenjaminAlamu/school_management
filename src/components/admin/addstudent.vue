@@ -1,6 +1,6 @@
 <template>
-    <div class="m-4">
-        <p>Student List Courses</p>
+    <div>
+        <p>Add Student</p>
     </div>
 </template>
 
