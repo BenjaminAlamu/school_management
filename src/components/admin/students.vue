@@ -51,7 +51,7 @@ export default {
           self.loading = false;
           self.error = true;
           this.error = error;
-          self.$swal("Error!", "Invalid Credentials", "error");
+          self.$swal("Error!", "An error occured", "error");
         });
     }
   }
