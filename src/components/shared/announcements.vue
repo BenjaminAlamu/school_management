@@ -9,14 +9,19 @@
         <p class="text-xs">{{announcement.details}}</p>
       </div>
     </div>
-    <p class="my-link text-sm my-4 hover:underline cursor-pointer">Create an announcement</p>
+    <p @click.prevent="$refs.add_new.open('add_new')" class="my-link text-sm my-4 hover:underline cursor-pointer">Create an announcement</p>
+
+    <sweet-modal ref="add_new">This is an alert.</sweet-modal>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-
+import { SweetModal } from "sweet-modal-vue";
 export default {
+  components: {
+    SweetModal
+  },
   data() {
     return {
       announcements: {},
