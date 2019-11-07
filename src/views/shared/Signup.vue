@@ -23,8 +23,8 @@
                     <div class="fields">
                         <input class="text-input" type="password" v-model="checkPassword" placeholder="Re-enter Password" />
                     </div>
-                    <div v-if="showMsg" class="error">
-                        Password does not match {{showMsg}}
+                    <div v-if="showMsg" class="password-error">
+                        Password does not match
                     </div>
                     <div class="signup-link">
                         <a href="http://localhost:8080/#/auth/login"> Alerady have an account? Sign In!</a>
@@ -93,12 +93,6 @@
         height: 100vh;
         align-items: center;
     }
-    .signup-left{
-        // width: 33%;
-        // height: 80%;
-        // background-color: rgb(195, 196, 198);
-        // border-radius: 5px;
-    }
     .signup-img{
         width: 550px;
         height: 550px;
@@ -153,10 +147,6 @@
         color: #FFFFFF;
         margin-top: 3px;
     }
-    .role-input{
-        // background: #FFFFFF;
-        // color: white;
-    }
     .fields{
         height: 50px;
         width: 80%;
@@ -177,6 +167,10 @@
 
 
         color: #FFFFFF;
+    }
+
+    .password-error{
+        color: red;
     }
 
     .signup-link{

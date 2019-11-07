@@ -82,7 +82,7 @@ export default new Router({
           {
             path: "",
             component: AdminSummary,
-            name: "admin_summary"
+            name: "/admin_summary"
           },
           {
             path: "/admin/courses",
