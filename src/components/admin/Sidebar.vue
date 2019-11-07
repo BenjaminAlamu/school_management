@@ -11,28 +11,47 @@
         />
         <ul class="list-reset flex flex-row md:flex-col text-center md:text-left">
           <li class="mr-3 flex-1">
-            <router-link to="#" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline cursor-pointer hover:underline">
+            <router-link
+              to="#"
+              class="block py-1 md:py-3 pl-1 align-middle text-white no-underline cursor-pointer hover:underline"
+            >
               <span class="text-xs md:text-base text-white block md:inline-block">Home</span>
             </router-link>
           </li>
           <li class="mr-3 flex-1">
-            <router-link to="/admin/students" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline cursor-pointer hover:underline">
+            <router-link
+              to="/admin/students"
+              class="block py-1 md:py-3 pl-1 align-middle text-white no-underline cursor-pointer hover:underline"
+            >
               <span class="text-xs md:text-base text-white block md:inline-block">Students</span>
             </router-link>
           </li>
 
           <li class="mr-3 flex-1">
-            <router-link to="/admin/courses" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline cursor-pointer hover:underline">
+            <router-link
+              to="/admin/courses"
+              class="block py-1 md:py-3 pl-1 align-middle text-white no-underline cursor-pointer hover:underline"
+            >
               <span class="text-xs md:text-base text-white block md:inline-block">Courses</span>
             </router-link>
           </li>
 
           <li class="mr-3 flex-1">
-            <router-link to="/admin/lecturers" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline cursor-pointer hover:underline">
+            <router-link
+              to="/admin/lecturers"
+              class="block py-1 md:py-3 pl-1 align-middle text-white no-underline cursor-pointer hover:underline"
+            >
               <span class="text-xs md:text-base text-white block md:inline-block">Lecturers</span>
             </router-link>
           </li>
 
+          <li @click="logOut" class="mr-3 flex-1">
+            <span
+              class="block py-1 md:py-3 pl-1 align-middle text-white no-underline cursor-pointer hover:underline"
+            >
+              <span class="text-xs md:text-base text-white block md:inline-block">Logout</span>
+            </span>
+          </li>
         </ul>
       </div>
     </div>
@@ -41,7 +60,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods:{
+    logOut(){
+      localStorage.removeItem("502_user");
+      this.$router.push("/auth/login")
+    }
+  }
+};
 </script>
 
 <style scoped>

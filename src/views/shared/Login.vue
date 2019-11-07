@@ -73,20 +73,25 @@ export default {
       const self = this;
       self.loading = true;
       let roleLogin;
+      let data = {
+        matric: this.form.email,
+        password: this.form.password
+      };
       switch (this.role) {
         case "lecturer":
-          roleLogin = "lecturerLogin";
+          roleLogin = "lecturer/lecturerLogin";
           break;
         case "admin":
-          roleLogin = "adminLogin";
+          roleLogin = "admin/adminLogin";
           break;
         default:
-          roleLogin = "studentLogin";
+          roleLogin = "student/studentLogin";
+          this.form = data;
       }
 
       axios
         .post(
-          `https://schoolmanagement502.herokuapp.com/api/v1/admin/${roleLogin}`,
+          `https://schoolmanagement502.herokuapp.com/api/v1/${roleLogin}`,
           this.form
         )
         .then(response => {
@@ -98,20 +103,28 @@ export default {
           switch (this.role) {
             case "lecturer":
               this.form = {};
-              localStorage.setItem("502_user", JSON.stringify(response.data.admin));
-              this.$router.push("/");
+              localStorage.setItem(
+                "502_user",
+                JSON.stringify(response.data.lecturer)
+              );
+              this.$router.push("/lecturer/courses");
               break;
             case "admin":
               this.form = {};
-              localStorage.setItem("502_user", JSON.stringify(response.data.admin));
-              this.$router.push("/admin");
+              localStorage.setItem(
+                "502_user",
+                JSON.stringify(response.data.admin)
+              );
+              this.$router.push("/admin/students");
               break;
             default:
               this.form = {};
-              localStorage.setItem("502_user", JSON.stringify(response.data.admin));
-              this.$router.push("/");
+              localStorage.setItem(
+                "502_user",
+                JSON.stringify(response.data.student)
+              );
+              this.$router.push("/student/courses");
           }
-          
         })
         .catch(error => {
           self.loading = false;
