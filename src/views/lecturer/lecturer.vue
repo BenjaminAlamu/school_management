@@ -1,7 +1,7 @@
 <template>
   <div>
     <SideBar></SideBar>
-    <div class="flex ben">
+    <div class="flex">
       <div class="invisible md:visible md:w-1/5"></div>
       <div class="w-full md:w-4/5">
       <Header/>
