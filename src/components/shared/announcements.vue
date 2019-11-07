@@ -43,7 +43,7 @@
           />
         </div>
         <vue-element-loading v-if="loading" :active="loading" :is-full-screen="true" />
-        <button @click="addAnnoucement" class=" mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Annoucement</button>
+        <button @click="addAnnoucement" class=" my-4 ml-4 add-btn text-white font-bold py-2 px-4 rounded">Add Annoucement</button>
       </div>
     </sweet-modal>
   </div>
@@ -135,6 +135,7 @@ body {
   max-height: 60vh;
   overflow: auto;
 }
+
 
 // ----------------  THE FONTS
 

@@ -1,7 +1,13 @@
 <template>
-  <div class="my-4 mx-12">
-    <p class>Students</p>
-    <hr class="mt-2 mr-4" />
+  <div class="mx-12">
+    <div class="flex flex-wrap justify-between items-center">
+      <span class>Students</span>
+      <router-link
+        to="/admin/add/student"
+        class="ml-4 add-btn text-white p-2 rounded cursor-pointer"
+      >Add Student</router-link>
+    </div>
+    <hr class="mt-2 mr-2" />
     <table class="table-auto w-full">
       <thead class>
         <tr>
