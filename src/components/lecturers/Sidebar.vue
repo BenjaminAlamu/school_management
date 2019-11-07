@@ -19,11 +19,11 @@
             </a>
           </li>
           <li class="mr-3 flex-1">
-            <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline">
+            <router-link :to="{name:'LecturerCourses'}" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline">
               <span
                 class="text-xs md:text-base text-white block md:inline-block"
               >Courses</span>
-            </a>
+            </router-link>
           </li>
 
           <li class="mr-3 flex-1">
@@ -32,11 +32,11 @@
             </a>
           </li>
 
-                    <li class="mr-3 flex-1">
-            <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline">
-              <span class="text-xs md:text-base text-white block md:inline-block">Students</span>
-            </a>
-          </li>
+<!--          <li class="mr-3 flex-1">-->
+<!--            <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline">-->
+<!--              <span class="text-xs md:text-base text-white block md:inline-block">Students</span>-->
+<!--            </a>-->
+<!--          </li>-->
         </ul>
       </div>
     </div>
