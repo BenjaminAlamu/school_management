@@ -85,42 +85,42 @@ export default new Router({
             name: "admin_summary"
           },
           {
-            path: "admin/courses",
+            path: "/admin/courses",
             component: AdminCourses,
             name: "admin_courses"
           },
           {
-            path: "admin/lecturers",
+            path: "/admin/lecturers",
             component: AdminLecturers,
             name: "admin_lecturers"
           },
           {
-            path: "admin/students",
+            path: "/admin/students",
             component: AdminStudents,
             name: "admin_student"
           },
           {
-            path: "admin/add/course",
+            path: "/admin/add/course",
             component: AdminAddCourse,
             name: "admin_student"
           },
           {
-            path: "admin/add/student",
+            path: "/admin/add/student",
             component: AdminAddStudent,
             name: "admin_add_student"
           },
           {
-            path: "admin/add/lecturer",
+            path: "/admin/add/lecturer",
             component: AdminAddLecturer,
             name: "admin_add_lecturer"
           },
           {
-            path: "admin/add/announcement",
+            path: "/admin/add/announcement",
             component: AdminAddAnnouncement,
             name: "admin_add_announcement"
           },
           {
-            path: "admin/annoucements",
+            path: "/admin/annoucements",
             component: AdminAnnoucements,
             name: "admin_annoucements"
           }

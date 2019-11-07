@@ -38,6 +38,12 @@
               <span class="text-xs md:text-base text-white block md:inline-block">Lecturers</span>
             </a>
           </li>
+
+                    <li class="mr-3 flex-1">
+            <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline">
+              <span class="text-xs md:text-base text-white block md:inline-block">Annoucements</span>
+            </a>
+          </li>
         </ul>
       </div>
     </div>

@@ -1,15 +1,62 @@
 <template>
-    <div>
-        <p>Admin Students</p>
-    </div>
+  <div class="my-4 mx-12">
+    <p class>Students</p>
+    <hr class="mt-2 mr-4" />
+    <table class="table-auto w-full">
+  <thead class="">
+    <tr>
+      <th class="px-4 py-2">Name</th>
+      <th class="px-4 py-2">Matric</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="(student, index) in students" :key="index" :class="{'bg-gray-100': index % 2 !== 0}">
+      <td class="border px-4 py-2">{{student.name}}</td>
+      <td class="border px-4 py-2">{{student.matric}}</td>
+    </tr>
+    <!-- <tr class="bg-gray-100">
+      <td class="border px-4 py-2">A Long and Winding Tour of the History of UI Frameworks and Tools and the Impact on Design</td>
+      <td class="border px-4 py-2">Adam</td>
+    </tr> -->
+  </tbody>
+</table>
+    <p ></p>
+  </div>
 </template>
 
 <script>
-    export default {
-        
+import axios from "axios";
+export default {
+  data() {
+    return {
+        students: {}
+    };
+  },
+  mounted() {
+    this.getStudents();
+  },
+  methods: {
+    getStudents() {
+              axios
+        .get(
+          `https://schoolmanagement502.herokuapp.com/api/v1/student/students`,
+        )
+        .then(response => {
+          console.log(response.data);
+          this.students = response.data.students;
+          self.loading = false;
+          self.success = true;          
+        })
+        .catch(error => {
+          self.loading = false;
+          self.error = true;
+          this.error = error;
+          self.$swal("Error!", "Invalid Credentials", "error");
+        });
     }
+  }
+};
 </script>
 
 <style scoped>
-
 </style>
